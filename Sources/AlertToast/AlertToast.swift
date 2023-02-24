@@ -503,7 +503,7 @@ public struct AlertToastModifier: ViewModifier{
                     .onDisappear(perform: {
                         completion?()
                     })
-                    .transition(alert().displayMode == .banner(.slide) ? AnyTransition.slide.combined(with: .opacity) : AnyTransition.move(edge: .bottom))
+                    .transition(alert().displayMode == .banner(.slide) ? AnyTransition.slide.combined(with: .opacity) : AnyTransition.move(edge: .bottom).combined(with: .opacity))
             }
             
         }
