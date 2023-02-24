@@ -503,8 +503,7 @@ public struct AlertToastModifier: ViewModifier{
                     .onDisappear(perform: {
                         completion?()
                     })
-                    .animation(.easeInOut(duration: 2), value: !isPresenting)
-                    .transition(alert().displayMode == .banner(.slide) ? AnyTransition.slide.combined(with: .opacity) : AnyTransition.opacity.combined(with: .move(edge: .bottom)))
+                    .transition(alert().displayMode == .banner(.slide) ? AnyTransition.slide.combined(with: .opacity) : AnyTransition.move(edge: .bottom))
                     
             }
             
@@ -521,6 +520,7 @@ public struct AlertToastModifier: ViewModifier{
                         .offset(y: offsetY)
                 }
                             .animation(Animation.spring(), value: isPresenting)
+                            .animation(.easeInOut(duration: 2), value: !isPresenting)
                 )
                 .valueChanged(value: isPresenting, onChange: { (presented) in
                     if presented{
