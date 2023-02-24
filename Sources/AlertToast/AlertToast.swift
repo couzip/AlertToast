@@ -504,7 +504,8 @@ public struct AlertToastModifier: ViewModifier{
                         completion?()
                     })
                     .transition(alert().displayMode == .banner(.slide) ? AnyTransition.slide.combined(with: .opacity) : AnyTransition.opacity.combined(with: .move(edge: .bottom)))
-                    .animation(.easeInOut(duration: 1))
+                    .animation(.easeInOut(duration: 1),
+                                                   value: !isPresenting)
             }
             
         }
