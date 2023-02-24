@@ -520,8 +520,8 @@ public struct AlertToastModifier: ViewModifier{
                         .offset(y: offsetY)
                 }
                             .animation(Animation.spring(), value: isPresenting)
-                            .animation(.easeInOut(duration: 2), value: !isPresenting)
                 )
+                .animation(.easeInOut(duration: 2), value: !isPresenting)
                 .valueChanged(value: isPresenting, onChange: { (presented) in
                     if presented{
                         onAppearAction()
